@@ -1,0 +1,43 @@
+\subsection{Microsoft IoT}
+\label{subsec:MicrosoftIot}
+Damit mit dem Raspberry Pi kommuniziert werden kann, können Bibliotheken verwendet werden.
+Microsoft bietet eine IoT Bibliothek an, mit der die Sensoren oder die LEDs auf
+dem Gerät angesteuert werden können. Die Bibliothek kann wie folgt in das Projekt eingebunden
+werden:
+
+\begin{lstlisting}[language={[Sharp]C}, caption=IoT NuGet Package,
+    label=lst:IotNugetPackage]
+    <ItemGroup>
+    <PackageReference Include="Iot.Device.Bindings" Version="1.5.0-*" />
+  </ItemGroup>
+\end{lstlisting}
+
+Das folgende beispielhafte Konsolenprogramm demonstriert, wie auf die Daten zugegriffen werden kann:
+
+\begin{lstlisting}[language={[Sharp]C}, caption=SenseHat Beispielprogramm,
+    label=lst:SenseHatBeispielProgramm]
+    public class Program
+    {
+        static void Main(string[] args)
+        {
+            using SenseHat _senseHat = new();
+
+            Console.WriteLine($"Temperatur: {_senseHat.Temperature.DegreesCelsius:0.#}\u00B0C");
+            Console.WriteLine($"Temperatur 2: {_senseHat.Temperature2.DegreesCelsius:0.#}\u00B0C");
+            Console.WriteLine($"Luftdruck: {_senseHat.Pressure.Hectopascals:0.##} hPa");
+            Console.WriteLine($"Luftfeuchtigkeit: {_senseHat.Humidity.Percent:0.#}%");
+        }
+    }
+\end{lstlisting}
+
+Der Output durch obiges Programm sieht wie folgt aus:
+
+\begin{zitat}
+    Temperatur: 38,4°C
+    \newline
+    Temperatur 2: 38,5°C
+    \newline
+    Luftdruck: 984,03 hPa
+    \newline
+    Luftfeuchtigkeit: 31\%
+\end{zitat}

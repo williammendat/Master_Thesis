@@ -1,0 +1,31 @@
+\subsection{Benchmark Hotels}
+\label{subsec:bench_hotels}
+Noch vor der Konzeptionierung zur eigentlichen Lösung der Problematik, sollten schon vorhandene Hotels in unserer Datenbank als \emph{Benchmark-Hotels} ausgesucht werden. Die Idee dahinter ist es, Hotels auszusuchen, bei denen viele Daten vorhanden sind und so zu tun als wären gar keine Daten von diesen Hotels vorhanden. Mithilfe dieser Hotels sollen denn die ausgearbeiteten Konzepte von Kapitel \emph{\nameref{chap:konzepte}} validiert werden. Ein Konzept wird dann als gut empfunden, wenn es in der Lage ist, gute Preisvorschläge für die Benchmark-Hotels zu erzeugen.
+\newline
+\newline
+Da nicht jedes Hotel, welches in der Datenbank vorhanden ist in frage kommt, wurden einige Kriterien aufgestellt, die ein Hotel erfüllen muss, um als Benchmark-Hotel gelten zu können. Diese Kriterien sehen wie folgt aus:
+
+\begin{itemize}
+    \item Haben Daten von mehr als zwei Jahren
+    \item Haben einen Benutzer mit der Role \emph{Revenue Manager}
+    \item Haben oft Preise geändert
+    \item Haben oft vorgeschlagene Preise von happyhotel nicht angenommen
+\end{itemize}
+
+Der hintergrund warum die letzten drei Kriterien dazu kamen, liegt darin, dass diese Hotels mit den Preisvorschlägen von happyhotel nicht zufrieden sind und vermutlich auch manuell \emph{Revenue Managment} betreiben. Die Hoffnung besteht darin, dass das Konzept nicht nur für Hotels gute Preisvorschläge liefert, sondern, dass das auch verwendet werden kann, als Alternative zu den vorhandenen zwei Modellen, für Hotels die noch manuell Dynamische Preise gestalten.
+\newline
+\newline
+Es wurde zur Analyse der Hotels eine \emph{json}-Datei erstellt. Diese \emph{json}-Datei besteht aus einer Liste von einzelnen Objekten. Jedes Objekt innerhalb der Liste repräsentiert ein Hotel in der Datenbank. Ein Beispiel für diese \emph{json}-Datei könnte wie folgt aussehen:
+
+\begin{lstlisting}[style=json, caption=Beispielhafte json-Datei,
+    label=lst:json_file]
+   [
+    {
+        "company_id": "11111111111111",
+        "not_accepted_recs": 10,
+        "price_change_average": 5
+    }
+   ]
+\end{lstlisting}
+
+Das Feld \emph{not\_accepted\_recs} beschreibt dabei wie viele Preisvorschläge das Hotel nicht angenommen hat beziehungsweise ignoriert oder abgelehnt hat und das Feld \emph{price\_change\_average} ist die durchschnittliche Preisänderung pro Tag. Anhand von diesen Informationen konnten zwei Hotels als Benchmark-Hotels ausgesucht werden.

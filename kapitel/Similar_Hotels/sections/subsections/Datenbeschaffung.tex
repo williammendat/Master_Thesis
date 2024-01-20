@@ -1,0 +1,39 @@
+\subsection{Datenbeschaffung}
+\label{subsec:Datenbeschaffung}
+Durch die verschiedenen Property Management Systeme, sind für die einzelnen Hotels, schon Stammdaten wie die Zimmer oder Zimmerkategorien vorhanden. Zudem wird der jeweilige Kunde beim Einrichten von happyhotel auch schon nach verschiedenen Daten befragt. Unter den Daten, die bei einem Kunden abgefragt werden, gehören Informationen wie zum Beispiel die Adresse des jeweiligen Hotels. 
+\newline
+\newline
+Werden nun alle schon vorhanden Informationen zusammengetragen, die bisher in der Datenbank zur Verfügung stehen, entsteht dabei das folgende Dataframe:
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth, center]{Features_1.png}
+    \caption[Alle schon vorhanden Features]{Alle schon vorhanden Features}
+    \label{img:all_Features}
+\end{figure}
+
+In Abbildung \ref{img:all_Features} sind die Daten zu sehen, die bislang zur Verfügung stehen, wobei sie die \emph{median\_min} und \emph{median\_max} werte auf den Median aller Zimmerkategorie-Preise bezieht.
+\newline
+\newline
+Dadurch das \emph{region} und \emph{city} manuell vom Kunden eingetragene Werte sind, ergab sich eine gewisse Skepsis ob alle Werte norm-konform eingetragen wurden. Aufgrund dieser Skepsis sollte eine kleine Datenanalyse getätigt werden. 
+\newline
+\newline
+Bei der Datenanalyse wurde jeweils nach der Region und nach der Stadt gruppiert um zu prüfen ob die so Benutzt werden können. Im folgenden sind die Werte jeweils für die Region und für die Stadt zu sehen:
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth, center]{region_1.png}
+    \caption[Alle vorhanden Regionen]{Alle vorhanden Regionen}
+    \label{img:region_1}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth, center]{city_1.png}
+    \caption[Alle vorhanden Städte]{Alle vorhanden Städte}
+    \label{img:city_1}
+\end{figure}
+
+Es ist eindeutig zu erkennen, dass es sowohl bei der Region als auch bei der Stadt zu einer Inkonsistenz kommt. So wurde die wurde Region \emph{Berlin} sowohl als \emph{Berlin}, als auch mit \emph{Land Berlin} angegeben. Auch bei der Stadt ist die Inkonsistenz deutlich zu sehen, so wurde \emph{München} mit Leerzeichen vorne dran angegeben oder die Stadt Freiburg einmal mit der Abkürzung \emph{Br.} und einmal ausgeschrieben \emph{Breisgau} angegeben. Es ergab sich also, dass diese Werte so wie sie sind, nicht verwendet werden können.
+
+\input{kapitel/Similar_Hotels/sections/subsections/Beschaffung_1.tex}
+\input{kapitel/Similar_Hotels/sections/subsections/Beschaffung_2.tex}

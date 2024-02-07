@@ -1,0 +1,30 @@
+\subsection{Modellbildung}
+\label{subsec:revpar_model}
+
+Nachdem der vorbereitete Datensatz vorliegt, wird das Modell implementiert. Aufgrund des Vorhandenseins vieler kategorischer Daten wird erneut das CatBoost-Modell verwendet. Die Implementierung erfolgt ähnlich wie in der vorherigen Sektion zur Identifizierung ähnlicher Hotels.
+
+\begin{lstlisting}[language=Python, label=lst:revpar_model, caption=Erzeugung der RevPAR-Vorhersagen]
+import catboost as cb
+
+cat_features = [
+    "stay_date_weekDayName",
+    "stay_date_monthName",
+    "holiday",
+    "time_to_arrival"
+]
+    
+result_dict = dict()
+    
+for id in silimar_hotel_ids:
+    X_train, y_train, X_test, y_test = get_data(id)
+    model = cb.CatBoostRegressor()
+    model.fit(X_train, y_train, cat_features=cat_features)
+    y_pred = model.predict(X_test)
+    result_dict[id] = y_pred
+    
+df = pd.DataFrame(result_dict)
+overall_preds = df.astype(float).mean(axis=1)
+\end{lstlisting}
+
+Die Code-Zeilen in Listing \ref{lst:revpar_model} erzeugen die Variable \emph{overall\_preds}, die eine Liste von normierten RevPAR-Werten darstellt. Diese normierten RevPAR-Werte werden als Vorhersage für das Hotel ohne Vergangenheitsdaten verwendet.
+    

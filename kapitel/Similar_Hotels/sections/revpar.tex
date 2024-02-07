@@ -1,0 +1,12 @@
+\section{Modifiziertes RevPAR-Modell}
+\label{sec:revpar}
+In der vorherigen Sektion wurde ein vielversprechender Ansatz zur Identifizierung ähnlicher Hotels entwickelt und evaluiert, wobei erfolgreich der CatBoost-Algorithmus eingesetzt wurde, um präzise Vorhersagen über die Ähnlichkeit zwischen verschiedenen Hotels zu treffen. Basierend auf diesen Ergebnissen wird im folgenden Abschnitt ein neuer Schwerpunkt gesetzt, der darauf abzielt, die Erkenntnisse aus dem Ähnlichkeitsmodell zu nutzen und ein weiteres Modell zu entwickeln.
+\newline
+\newline 
+Der Schwerpunkt dieser Sektion liegt auf der Modifikation des bereits vorhandenen RevPAR-Modells, das darauf abzielt, die RevPAR-Werte für ein Hotel vorherzusagen. Die vorgeschlagene Methode besteht darin, für jedes ähnliche Hotel ein eigenes RevPAR-Modell zu erstellen und den Durchschnitt der Ergebnisse zu ermitteln. Dabei werden die Daten der ähnlichen Hotels so angepasst, dass das Modell unabhängig vom spezifischen Hotel verwendet werden kann. Diese Sektion beginnt ebenfalls mit der Datenvorverarbeitung, bevor mit der Datenanalyse und Modellierung fortgefahren wird.
+
+\input{kapitel/Similar_Hotels/sections/revpar_subs/prepare.tex}
+\input{kapitel/Similar_Hotels/sections/revpar_subs/analysis.tex}
+\input{kapitel/Similar_Hotels/sections/revpar_subs/model.tex}
+\input{kapitel/Similar_Hotels/sections/revpar_subs/eval.tex}
+\input{kapitel/Similar_Hotels/sections/revpar_subs/price.tex}

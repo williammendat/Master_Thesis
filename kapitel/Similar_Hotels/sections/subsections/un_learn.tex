@@ -1,0 +1,11 @@
+\subsection{Unbewachtes Lernen}
+\label{subsec:un_lear}
+Mit dem konstruierten Datensatz und der zusätzlichen Metrik zur Bestimmung ähnlicher Hotels erfolgt nun die Modellierung. Aufgrund der Unbekanntheit im Vorfeld, welche Hotels miteinander vergleichbar sind, wird ein Modell für unbewachtes Lernen implementiert. Unbewachtes Lernen bezeichnet eine Methode des maschinellen Lernens, bei der der Algorithmus eigenständig und ohne Überwachung Muster sowie Zusammenhänge in den Daten explorativ erkennt \cite{datasolutGmbH.05.02.2024}. Die Grundidee besteht darin, jedes Hotel in einer vergleichbaren Form dem Modell zuzuführen. Dieses Modell erkennt eigenständig Muster und Ähnlichkeiten auf Basis der gegebenen Informationen.
+\newline
+\newline
+Die Evaluation der unterschiedlichen Ansätze und Modelle erfolgt anhand der Benchmark-Hotels, welche in der Sektion zu den Benchmark-Hotels selektiert wurden. Ein Ansatz oder Modell wird als erfolgreich betrachtet, wenn es für die Benchmark-Hotels ein oder mehrere ähnliche Hotels identifiziert, die Korrelationswert von mindestens 0,8 haben.
+
+\input{kapitel/Similar_Hotels/sections/subsections/BasisModel.tex}
+\input{kapitel/Similar_Hotels/sections/subsections/dbscan.tex}
+\input{kapitel/Similar_Hotels/sections/subsections/doc2vec.tex}
+\input{kapitel/Similar_Hotels/sections/subsections/un_fazit.tex}

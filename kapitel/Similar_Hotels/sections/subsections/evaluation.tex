@@ -1,4 +1,4 @@
-\subsection{Evaluation der Ähnlichen Hotels}
+\subsection{Evaluation der ähnlichen Hotels}
 \label{subsec:Evaluation_1}
 Der vorliegende Datensatz ist nun verfügbar, und grundsätzlich kann die Modellierung fortgesetzt werden. Allerdings stellt sich die Frage, ob die identifizierten Hotels tatsächlich ähnlich zum ursprünglichen Hotel sind. Es ist von entscheidender Bedeutung, nachzuweisen, dass die ausgewählten Hotels auf irgendeine Weise miteinander vergleichbar sind. Aus diesem Grund wird im nachfolgenden Abschnitt ein Mechanismus entwickelt, um die Ähnlichkeit der Hotels zu überprüfen und zu gewährleisten.
 \newline
@@ -12,7 +12,7 @@ Angesichts des angestrebten Ziels, nämlich der dynamischen Generierung von Prei
     \label{img:all_prices}
 \end{figure}
 
-Abbildung \ref{img:all_prices} zeigt einen exemplarischen Auszug aus dem DataFrame. Zudem wurde anhand diesem DataFrame noch die dazugehörige Korrelationsmatrix erstellt. Die Korrelationsmatrix ist dafür da um zusammenhänge zwischen den Vektoren zu finden. Dabei beschreibt ein Wert nahe 1 einen hohen positiven Zusammenhang der zwei Vektoren und ein Wert nahe -1 einen hohen negativen Zusammenhang der zwei Vektoren. Ein Korrelationswert gegen 0 beschreibt beschreibt keinerlei Zusammenhang der Vektoren \cite{Team.03.05.2020}. Die Vermutung ist es, dass wenn die Preise von 2 Hotels korrelieren und die Preise sich überschneiden, so werden dass ähnliche Hotels sein. 
+Abbildung \ref{img:all_prices} zeigt einen exemplarischen Auszug aus dem DataFrame. Zudem wurde anhand diesem DataFrame noch die dazugehörige Korrelationsmatrix erstellt. Die Korrelationsmatrix ist dafür da, um Zusammenhänge zwischen den Vektoren zu finden. Dabei beschreibt ein Wert nahe 1 einen hohen positiven Zusammenhang der zwei Vektoren und ein Wert nahe -1 einen hohen negativen Zusammenhang der zwei Vektoren. Ein Korrelationswert gegen 0 beschreibt keinerlei Zusammenhang der Vektoren \cite{Team.03.05.2020}. Die Vermutung legt nah, dass wenn die Preise von 2 Hotels korrelieren und die Preise sich überschneiden, so müssten das ähnliche Hotels sein.
 \newline
 \newline
 Diese Vermutung soll dementsprechend mit einigen Hotels getestet werden:
@@ -30,10 +30,10 @@ Diese Vermutung soll dementsprechend mit einigen Hotels getestet werden:
     \label{img:corr_values_ex}
 \end{figure}
 
-Abbildung \ref{img:preise_zwei_hotels} illustriert den Preisverlauf von zwei Hotels im Jahr 2022, während Abbildung \ref{img:corr_values_ex} die Korrelation zwischen diesen beiden Hotels zeigt. Der festgestellte Korrelationswert von 0,6 erweist sich als bemerkenswert, insbesondere vor dem Hintergrund, dass die Preise in Abbildung \ref{img:preise_zwei_hotels} beträchtlich voneinander abweichen. Infolgedessen wurde die Überlegung angestellt, die Preise zu skalieren und daraufhin miteinander zu vergleichen. Entscheidend für ähnliche Hotels ist lediglich die Tendenz wie sich die Preise verhalten. 
+Abbildung \ref{img:preise_zwei_hotels} illustriert den Preisverlauf von zwei Hotels im Jahr 2022, während Abbildung \ref{img:corr_values_ex} die Korrelation zwischen diesen beiden Hotels zeigt. Der festgestellte Korrelationswert von 0,6 erweist sich als bemerkenswert, insbesondere vor dem Hintergrund, dass die Preise in Abbildung \ref{img:preise_zwei_hotels} beträchtlich voneinander abweichen. Infolgedessen wurde die Überlegung angestellt, die Preise zu skalieren und daraufhin miteinander zu vergleichen. Entscheidend für ähnliche Hotels ist lediglich die Tendenz, wie sich die Preise verhalten. 
 \newline
 \newline
-Werden die Preise nun Skaliert ändert sich an der Korrelation nichts und die Skalierten Preise sehen nun wie folgt aus:
+Werden die Preise nun skaliert ändert sich an der Korrelation nichts und die skalierten Preise sehen nun wie folgt aus:
 
 \begin{figure}[h]
     \centering
@@ -45,7 +45,7 @@ Werden die Preise nun Skaliert ändert sich an der Korrelation nichts und die Sk
 Eine zusätzliche Betrachtung ergab die Frage, ob ein ähnliches Muster nicht auch durch die Verwendung des RevPAR erzielt werden könnte. Die Verwendung des RevPAR-Werts erscheint in diesem Kontext sinnvoller als die ausschließliche Berücksichtigung der Zimmerpreise, da das nachfolgende Modell letztendlich darauf abzielt, den RevPAR-Wert vorherzusagen.
 \newline
 \newline
-Im folgenden werden die gleichen zwei Hotels mit dem RevPAR-Wert verglichen:
+Im Folgenden werden die gleichen zwei Hotels mit dem RevPAR-Wert verglichen:
 
 \begin{figure}[h]
     \centering

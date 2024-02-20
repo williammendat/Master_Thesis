@@ -1,9 +1,9 @@
 \subsubsection{Beschaffung von Region, City und Stadtgröße}
 \label{subsubsec:region_city_size}
-Durch eine schon im Vorfeld getätigte Arbeit, existiert zu jedem Hotel in unserer Datenbank, die Koordinaten, repräsentiert durch die zwei Werte Long- und Latitude. Mithilfe von diesen zwei Werten sollte ein Skript geschrieben werden um die Region, die Stadt und Größe der Stadt zu beschaffen. 
+Durch eine schon im Vorfeld getätigte Arbeit, existieren zu jedem Hotel in unserer Datenbank die Koordinaten, repräsentiert durch die zwei Werte Long- und Latitude. Mithilfe von diesen zwei Werten sollte ein Skript geschrieben werden, um die Region, die Stadt und Größe der Stadt zu beschaffen. 
 \newline
 \newline
-Für das Skript wurde \emph{Nominatim} API verwendet um die einzelnen Werte zu beschaffen. Im folgenden wird das Skript präsentiert:
+Für das Skript wurde \emph{Nominatim} API verwendet, um die einzelnen Werte zu beschaffen. Im Folgenden wird das Skript präsentiert:
 
 \begin{lstlisting}[language=Python, label=lst:RS_Demo, caption=Einfaches Recommendation System für Film vorschläge]
     from geopy.geocoders import Nominatim
@@ -44,4 +44,4 @@ def get_region_city_size(latitude, longitude):
         return dict()
 \end{lstlisting}
 
-Die Funktion \emph{get\_region\_city\_size} nimmt als Parameter die Long- und Latitude Werte und erzeugt dadurch ein \emph{Dictionary} mit den Werten \emph{region}, \emph{city} und \emph{size}.
+Die Funktion \emph{get\_region\_city\_size} nimmt als Parameter die Long- und Latitude-Werte und erzeugt dadurch ein \emph{Dictionary} mit den Werten \emph{region}, \emph{city} und \emph{size}.

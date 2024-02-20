@@ -43,7 +43,7 @@ preprocessor = ColumnTransformer(
 pipeline = make_pipeline(preprocessor)
 \end{lstlisting}
 
-Die in dem Listing \ref{lst:pipeline} gezeigte Pipeline kann nun auf Datensatz angewendet werden. Dazu muss die Pipeline zunächst du den Datensatz abgestimmt werden um dann den Datensatz zu Transformieren. Dies wird mit dem folgenden Listing veranschaulicht:
+Die in dem Listing \ref{lst:pipeline} gezeigte Pipeline kann nun auf Datensatz angewendet werden. Dazu muss die Pipeline zunächst du den Datensatz abgestimmt werden, um dann den Datensatz zu Transformieren. Dies wird mit dem folgenden Listing veranschaulicht:
 
 \begin{lstlisting}[language=Python, label=lst:pipeline2, caption=Ausführung der Pipeline auf dem Datensatz]
 # Anpassen der Daten an die Pipeline
@@ -135,7 +135,7 @@ Unter Berücksichtigung des zweiten Hotels wird ersichtlich, dass der DBScan Hot
 Angesichts der Tatsache, dass allein anhand der Merkmale keine klare Aussage über die tatsächliche Ähnlichkeit der Hotels getroffen werden kann, erfolgt in der nachfolgenden Sektion eine Evaluierung der beiden Benchmark-Hotels. 
 \newline
 \newline
-Der Beginn dieser Evaluierung erfolgt mit dem Hotel, das die ID \emph{5ff6dfa94b64c82082b03a76} trägt. Die Ergebnisse dieser Evaluation werden im folgenden dargestellt:
+Der Beginn dieser Evaluierung erfolgt mit dem Hotel, das die ID \emph{5ff6dfa94b64c82082b03a76} trägt. Die Ergebnisse dieser Evaluation werden im Folgenden dargestellt:
 
 \begin{figure}[h]
     \centering
@@ -151,7 +151,7 @@ Der Beginn dieser Evaluierung erfolgt mit dem Hotel, das die ID \emph{5ff6dfa94b
     \label{img:dbscan_results_1_1}
 \end{figure}
 
-Die Abbildungen \ref{img:dbscan_results_1} und \ref{img:dbscan_results_1} verdeutlichen, dass die identifizierten Hotels die Voraussetzungen für einen Korrelationswert von mindestens 0,8 erfüllen. Die Ergebnisse für das Hotel mit der ID \emph{5ff6dfa94b64c82082b03a76} erweisen sich demnach als zufriedenstellend. Allerdings ist eine gewisse Skepsis angebracht, da es auch rein zufällig sein könnte, dass diese Hotels Ähnlichkeiten in bezug auf den RevPAR verlauf aufweisen. Aus diesem Grund soll die gleiche Evaluation auch mit dem zweiten Hotel, welches die ID \emph{645cb624b9b0cca6912ed4cc} trägt, durchgeführt werden.
+Die Abbildungen \ref{img:dbscan_results_1} und \ref{img:dbscan_results_1} verdeutlichen, dass die identifizierten Hotels die Voraussetzungen für einen Korrelationswert von mindestens 0,8 erfüllen. Die Ergebnisse für das Hotel mit der ID \emph{5ff6dfa94b64c82082b03a76} erweisen sich demnach als zufriedenstellend. Allerdings ist eine gewisse Skepsis angebracht, da es auch rein zufällig sein könnte, dass diese Hotels Ähnlichkeiten in Bezug auf den RevPAR Verlauf aufweisen. Aus diesem Grund soll die gleiche Evaluation auch mit dem zweiten Hotel, welches die ID \emph{645cb624b9b0cca6912ed4cc} trägt, durchgeführt werden.
 
 \begin{figure}[h]
     \centering

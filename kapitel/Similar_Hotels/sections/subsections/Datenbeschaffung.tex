@@ -1,6 +1,6 @@
 \subsection{Datenbeschaffung}
 \label{subsec:Datenbeschaffung}
-Durch die verschiedenen Property Management Systeme, sind für die einzelnen Hotels, schon Stammdaten wie die Zimmer oder Zimmerkategorien vorhanden. Zudem wird der jeweilige Kunde beim Einrichten von happyhotel auch schon nach verschiedenen Daten befragt. Unter den Daten, die bei einem Kunden abgefragt werden, gehören Informationen wie zum Beispiel die Adresse des jeweiligen Hotels. 
+Durch die verschiedenen Property Management Systeme sind für die einzelnen Hotels bereits Stammdaten wie Zimmeranzahl oder Zimmerkategorien vorhanden. Zudem wird der jeweilige Kunde beim Einrichten von happyhotel auch schon nach verschiedenen Daten befragt. Unter den Daten, die bei einem Kunden abgefragt werden, gehören Informationen wie zum Beispiel die Adresse des jeweiligen Hotels. 
 \newline
 \newline
 Werden nun alle schon vorhanden Informationen zusammengetragen, die bisher in der Datenbank zur Verfügung stehen, entsteht dabei das folgende Dataframe:
@@ -11,13 +11,13 @@ Werden nun alle schon vorhanden Informationen zusammengetragen, die bisher in de
     \label{img:all_Features}
 \end{figure}
 
-In Abbildung \ref{img:all_Features} sind die Daten zu sehen, die bislang zur Verfügung stehen, wobei sie die \emph{median\_min} und \emph{median\_max} werte auf den Median aller Zimmerkategorie-Preise bezieht.
+In Abbildung \ref{img:all_Features} sind die Daten zu sehen, die bislang zur Verfügung stehen, wobei sich die \emph{median\_min} und \emph{median\_max} Werte auf den Median aller Zimmerkategorie-Preise bezieht.
 \newline
 \newline
-Dadurch das \emph{region} und \emph{city} manuell vom Kunden eingetragene Werte sind, ergab sich eine gewisse Skepsis ob alle Werte norm-konform eingetragen wurden. Aufgrund dieser Skepsis sollte eine kleine Datenanalyse getätigt werden. 
+Dadurch, dass \emph{region} und \emph{city} manuell vom Kunden eingetragene Werte sind, ergab sich eine gewisse Skepsis, ob alle Werte norm-konform eingetragen wurden. Aufgrund dieser Skepsis sollte eine kleine Datenanalyse getätigt werden. 
 \newline
 \newline
-Bei der Datenanalyse wurde jeweils nach der Region und nach der Stadt gruppiert um zu prüfen ob die so Benutzt werden können. Im folgenden sind die Werte jeweils für die Region und für die Stadt zu sehen:
+Bei der Datenanalyse wurde jeweils nach der Region und nach der Stadt gruppiert, um zu prüfen ob die Daten so benutzt werden können. Im Folgenden sind die Werte jeweils für die Region und für die Stadt zu sehen:
 
 \begin{figure}[h]
     \centering
@@ -33,7 +33,7 @@ Bei der Datenanalyse wurde jeweils nach der Region und nach der Stadt gruppiert 
     \label{img:city_1}
 \end{figure}
 
-Es ist eindeutig zu erkennen, dass es sowohl bei der Region als auch bei der Stadt zu einer Inkonsistenz kommt. So wurde die wurde Region \emph{Berlin} sowohl als \emph{Berlin}, als auch mit \emph{Land Berlin} angegeben. Auch bei der Stadt ist die Inkonsistenz deutlich zu sehen, so wurde \emph{München} mit Leerzeichen vorne dran angegeben oder die Stadt Freiburg einmal mit der Abkürzung \emph{Br.} und einmal ausgeschrieben \emph{Breisgau} angegeben. Es ergab sich also, dass diese Werte so wie sie sind, nicht verwendet werden können.
+Es ist eindeutig zu erkennen, dass es sowohl bei der Region als auch bei der Stadt zu einer Inkonsistenz kommt. So wurde die Region \emph{Berlin} sowohl als \emph{Berlin}, als auch mit \emph{Land Berlin} angegeben. Auch bei der Stadt ist die Diskrepanz deutlich zu erkennen, -so wurde bspw. \emph{München} mit Leerzeichen vorne dran angegeben oder die Stadt Freiburg einmal mit der Abkürzung \emph{Br.} und ein anderes Mal mit komplett ausgeschriebenen \emph{Breisgau} angegeben. Es ergab sich also, dass diese Werte so wie sie sind, nicht verwendet werden können.
 
 \input{kapitel/Similar_Hotels/sections/subsections/Beschaffung_1.tex}
 \input{kapitel/Similar_Hotels/sections/subsections/Beschaffung_2.tex}

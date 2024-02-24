@@ -1,11 +1,11 @@
-\subsection{Datenanalyse}
+\section{Datenanalyse}
 \label{subsec:revpar_analyse}
 
 Wie bereits in Abschnitt \emph{\nameref{subsec:Datenanalyse}} erläutert wurde, ist die Datenanalyse eine der essenziellsten Komponenten bei der Modellierung eines Modells. Im Folgenden wird daher untersucht, welche hotelspezifischen Daten vorhanden sind und wie sie effektiv genutzt werden können.
 \newline
 \newline
 Als erster Schritt soll erforscht werden, ob der gesamte Zeitraum des Datensatzes valide ist und verwendet werden kann. Dazu wird zunächst der durchschnittliche normierte RevPAR, repräsentiert durch die Spalte \emph{target}, mit den einzelnen Jahren verglichen.
-\newpage
+
 \begin{figure}[h]
     \centering
     \includegraphics[width=1\textwidth, center]{revpar_target_year.png}
@@ -21,7 +21,6 @@ Des Weiteren soll mit derselben Methodik überprüft werden, ob die Features
 \newline 
 \emph{stay\_date\_weekDayName}, \emph{stay\_date\_monthName} und \emph{holiday} einen signifikanten Einfluss auf den normierten RevPAR haben.
 
-\newpage
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.35\textwidth, center]{revpar_target_week.png}
@@ -35,7 +34,7 @@ Des Weiteren soll mit derselben Methodik überprüft werden, ob die Features
     \caption[Durchschnittlich normierte RevPAR-Werte pro Monat]{Durchschnittlich normierte RevPAR-Werte pro Monat}
     \label{img:revpar_target_month}
 \end{figure}
-
+\newpage
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.35\textwidth, center]{revpar_target_holiday.png}
@@ -47,7 +46,7 @@ Anhand der Abbildungen \ref{img:revpar_target_week}, \ref{img:revpar_target_mont
 \newline 
 \newline
 Zum Abschluss sollen noch die Spalten \emph{scaled\_current\_adr}, \emph{scaled\_current\_revpar} und \emph{occupancy} auf ihren Einfluss überprüft werden. Hierzu wird im Folgenden eine Korrelationsmatrix erstellt, um die Korrelation dieser Spalten mit dem normierten RevPAR zu bestimmen.
-\newpage
+
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.6\textwidth, center]{revpar_corr.png}

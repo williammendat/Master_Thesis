@@ -1,4 +1,4 @@
-\subsubsection{Doc2Vec Modell}
+\section{Doc2Vec Modell}
 \label{subsubsec:doc2vec}
 In Anbetracht des unbefriedigenden Ergebnisses des DBScan-Algorithmus wird nun die Erprobung eines weiteren Modells in Betracht gezogen, um ähnliche Hotels zu identifizieren. Die nächste Alternative besteht in der Anwendung des Doc2Vec-Modells.
 \newline
@@ -11,7 +11,7 @@ Die grundlegende Idee besteht darin, jedes Hotel in einem textbasierten Dokument
 \newline
 Ähnlich wie beim DBScan, wo der Vorteil darin bestand, keine Cluster angeben zu müssen, weist auch das Doc2Vec-Modell den Vorteil auf, dass keinerlei Cluster explizit angegeben werden müssen. Zudem eröffnet sich hier ein weiterer Vorteil, der beim DBScan-Algorithmus nicht gegeben war. Die beiden Informationen \emph{Art} und \emph{Region} sind beide durch Strings repräsentiert. Da Doc2Vec mit einer textbasierten Repräsentation arbeitet, bedarf es keiner Umwandlung dieser beiden Merkmale mittels \emph{One-Hot-Encoding}.
 
-\paragraph{Vorbereitung des Datensatzes} 
+\subsection{Vorbereitung des Datensatzes} 
 Auch in diesem Kontext erfordert der in Abbildung \ref{img:all_features_4} dargestellte Datensatz eine vorherige Verarbeitung, um mit dem Doc2Vec-Modell kompatibel zu sein. Die Vorbereitung besteht darin, dem Datensatz eine zusätzliche Spalte hinzuzufügen, die sämtliche Informationen des Hotels als textbasiertes Dokument repräsentiert. 
 \newline
 \newline
@@ -46,7 +46,7 @@ Durch die im Listing \ref{lst:doc2vec_hilfs_func} präsentierten Codezeilen, wur
 
 Mithilfe dieser neuen Repräsentation kann nun im nächsten Schritt das Modell trainiert werden.
 
-\paragraph{Modellbildung}
+\subsection{Modellbildung}
 
 Nach der erfolgten Datenvorbereitung und der Erstellung der textbasierten Dokumente für jedes Hotel kann das Modell nun trainiert werden. Hierzu werden die Hotel-IDs zunächst als Index festgelegt. Anschließend wird der Datensatz in sogenannte \emph{TaggedDocument} Objekte umgewandelt. Diese \emph{TaggedDocument} Objekte erfassen die einzelnen Wörter innerhalb eines Dokuments sowie ein sogenanntes \emph{Tag}, welches zur Identifikation des jeweiligen Dokuments dient. In diesem Kontext repräsentiert das \emph{Tag} die Hotel-ID. Der letzte Schritt besteht darin, die \emph{TaggedDocument} Objekte unter Verwendung einiger Hyperparameter dem Modell zuzuführen und das Training zu starten. Sobald das Modell trainiert ist, können ähnliche Dokumente zu einem ausgewählten Dokument, das durch die Hotel-ID identifiziert wird, gefunden werden.
 \newline
@@ -76,7 +76,7 @@ Nun stehen in der Variable \emph{pred\_hotel\_ids} die Hotel-IDs, die anhand von
 
 Es zeigt sich, dass das Doc2Vec Modell ganz andere Hotels als ähnlich identifiziert hat. Im Gegensatz zum DBScan-Algorithmus scheinen die Merkmale der gefundenen Hotels lediglich Überlappungen aufzuweisen, anstatt sich zu teilen. Wie bereits in den vorhergehenden Abschnitten ersichtlich wurde, müssen sich die Merkmale nicht zwangsläufig überschneiden.
 
-\paragraph{Evaluation}
+\subsection{Evaluation}
 Ungeachtet der jeweiligen Merkmale der einzelnen Hotels besteht die Möglichkeit, dass diese dennoch Ähnlichkeiten in dem RevPAR-Verlauf aufweisen. Diese Annahme soll im Folgenden überprüft werden.
 
 \begin{figure}[h]
@@ -88,7 +88,7 @@ Ungeachtet der jeweiligen Merkmale der einzelnen Hotels besteht die Möglichkeit
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=1\textwidth, center]{doc2vec_results_1_1.png}
+    \includegraphics[width=0.5\textwidth, center]{doc2vec_results_1_1.png}
     \caption[Doc2Vec Ergebnisse der RevPAR-Korrelationen für das erste Benchmark-Hotel]{Doc2Vec Ergebnisse der RevPAR-Korrelationen für das erste Benchmark-Hotel}
     \label{img:doc2vec_results_1_1}
 \end{figure}

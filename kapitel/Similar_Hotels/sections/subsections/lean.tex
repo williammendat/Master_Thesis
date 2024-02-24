@@ -1,4 +1,4 @@
-\subsection{Überwachtes Lernen}
+\chapter{Überwachtes Lernen}
 \label{subsec:lean}
 Beide unbewachte Ansätze erwiesen sich als nicht zufriedenstellend, dennoch haben sie wertvolle Erkenntnisse geliefert. Es wurde festgestellt, dass die erforderlichen Korrelationswerte für eine Evaluierung vorhanden sind, mit Ausnahme von neuen Hotels ohne entsprechende Daten. Nichtsdestotrotz könnten die bestehenden Korrelationswerte trotzdem genutzt werden, um ein Modell zu trainieren. Die Idee besteht darin, die beschreibenden Merkmale eines Hotels in ein trainiertes Modell einzuspeisen, um die Korrelationswerte vorherzusagen, anstatt direkt ähnliche Hotels zu prognostizieren.
 \newline
@@ -8,7 +8,7 @@ Konkret sieht der Ansatz wie folgt aus: Jedes Hotel im Datensatz wird mit jedem 
 \newline
 Um diese theoretische Idee zu konkretisieren, werden im folgenden Abschnitt die einzelnen Schritte veranschaulicht.
 
-\subsubsection{Vorbereitung des Datensatzes}
+\section{Vorbereitung des Datensatzes}
 \label{subsubsec:learn_prepare}
 Um die beschriebene Idee in die Tat umzusetzen, bedarf es zunächst einer Modifikation des Datensatzes, welcher in Abbildung \ref{img:all_features_4} dargestellt ist. Jede Zeile soll mit jeder anderen Zeile kombiniert werden. Dies wird durch die nachfolgenden Codezeilen realisiert:
 
@@ -45,7 +45,7 @@ Der resultierende Datensatz, welcher für das Modell verwendet werden soll, sieh
     \label{img:learn_df1}
 \end{figure}
 
-\subsubsection{Modellbildung}
+\section{Modellbildung}
 \label{subsubsec:learn_model}
 Für das überwachte Lernen wird CatBoost verwendet, ein hochentwickelter Machine-Learning-Algorithmus, der gezielt auf die Vorhersage von kategorialen Variablen in Datensätzen abzielt und auf dem Gradient Boosting Framework basiert. Eine signifikante Eigenschaft von CatBoost ist seine einzigartige Methode zur Behandlung von kategorialen Merkmalen, bekannt als \emph{Kategorie-Binning}. Diese Methode befähigt den Algorithmus dazu, die internen Strukturen kategorialer Variablen besser zu erfassen und sie effektiv in den Trainingsprozess einzubeziehen, was zu präziseren Vorhersagen führt \cite{Hancock.2020}.
 \newline
@@ -93,7 +93,7 @@ Mithilfe der Codezeilen im Listing \ref{lst:learn_model_train} wurde ein zusätz
 
 Es besteht nun die Möglichkeit, verschiedene Operationen auf dem DataFrame auszuführen. Zum Beispiel kann auf dem DataFrame gemäß der Bedingung in Abschnitt \emph{\nameref{subsec:un_lear}} gefiltert werden, die besagt, dass Hotelkorrelationen mit mindestens einem Korrelationswert von 0,8 gefunden werden sollen.
 
-\subsubsection{Evaluation}
+\section{Evaluation}
 \label{subsubsec:learn_eval}
 Im Gegensatz zu früheren Modellen wurde bei diesem Modell auf eine umfassende Evaluation verzichtet, da der prognostizierte Korrelationswert ausreichend ist, um ähnliche Hotels zu identifizieren. Es wurde lediglich versucht, den R2-Score mithilfe von Hyperparameteranalysen mittels Random Search 
 \cite{AdapRandomSearch4.05.2009} und Grid Search \cite{Liashchynskyi.12.12.2019} zu verbessern.

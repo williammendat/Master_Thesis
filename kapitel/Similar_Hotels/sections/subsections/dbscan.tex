@@ -1,4 +1,4 @@
-\subsubsection{DBScan Modell}
+\section{DBScan Modell}
 \label{subsubsec:dbscan}
 Die erste Idee nach dem Basismodell, um ähnliche Hotels zu finden, ist es den weitverbreiteten \emph{Density-Based Spatial Clustering of Applications with Noise-Algorithmus} zu nutzen. Der \emph{Density-Based Spatial Clustering of Applications with Noise-Algorithmus} kurz DBScan ist ein leistungsfähiger Ansatz zur Clusteranalyse, der darauf abzielt, Cluster in Datensätzen mit variabler Dichte zu identifizieren. Anders als klassische Clustering-Algorithmen, die auf geometrischen Formen oder Distanzmetriken basieren, nutzt DBScan die Dichte der Datenpunkte, um Cluster zu identifizieren \cite{6814687}.
 \newline
@@ -15,7 +15,7 @@ Ein Vorteil des DBScan-Algorithmus besteht darin, dass keine vorherige Festlegun
 \newline
 Die zugrunde liegende Hypothese dieser Methodik besagt, dass der DBScan-Algorithmus alle ähnlichen Hotels in einem Cluster zusammenführt.
 
-\paragraph{Vorbereitung des Datensatzes} 
+\subsection{Vorbereitung des Datensatzes} 
 Der in Abbildung \ref{img:all_features_4} dargestellte Datensatz enthält sowohl numerische als auch kategoriale Daten. Da der DBScan-Algorithmus ausschließlich mit numerischen Daten arbeiten kann, ist es erforderlich, den vorhandenen Datensatz vor der Anwendung des Algorithmus zu transformieren. Zu diesem Zweck wird eine Pipeline erstellt, die auf den gesamten Datensatz angewendet wird. In einem ersten Schritt werden die kategorialen Daten mithilfe von \emph{One-Hot-Encoding} umgewandelt. Darüber hinaus erfolgt eine Skalierung der bereits vorhandenen numerischen Daten.
 \newline
 \newline
@@ -60,7 +60,7 @@ model_df = pd.DataFrame(transformed_df.toarray(),
                                                 .get_feature_names_out(categorical_features)))
 \end{lstlisting}
 
-\paragraph{Modellbildung} 
+\subsection{Modellbildung} 
 Nach erfolgter Transformation des Datensatzes kann dieser in den DBScan-Algorithmus eingegeben werden, um die Cluster zu generieren. Als Mindestanzahl an Datenpunkten für ein Cluster wird der Wert 2 festgelegt, da stets Paare von zwei Hotels gefunden werden sollen. Das Auffinden der Cluster erfolgt daraufhin lediglich durch einen Aufruf.
 
 \begin{lstlisting}[language=Python, label=lst:dbscan, caption=Ausführung des DBScan-Algorithmus]
@@ -84,7 +84,7 @@ In einem nachfolgenden Schritt können die erstellten Cluster wie folgt visualis
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.85\textwidth, center]{cluster.png}
+    \includegraphics[width=0.6\textwidth, center]{cluster.png}
     \caption[DBScan Clusters]{DBScan Clusters}
     \label{img:cluster}
 \end{figure}
@@ -131,7 +131,7 @@ Die Hotels, die im identifizierten Cluster zu finden sind, weisen tatsächlich �
 
 Unter Berücksichtigung des zweiten Hotels wird ersichtlich, dass der DBScan Hotels mit ähnlichen Merkmalen identifiziert. Dennoch lässt sich anhand der vorliegenden Merkmale nicht eindeutig feststellen, ob diese Hotels tatsächlich ähnliche Verläufe in Bezug auf den RevPAR aufweisen.
 
-\paragraph{Evaluation}
+\subsection{Evaluation}
 Angesichts der Tatsache, dass allein anhand der Merkmale keine klare Aussage über die tatsächliche Ähnlichkeit der Hotels getroffen werden kann, erfolgt in der nachfolgenden Sektion eine Evaluierung der beiden Benchmark-Hotels. 
 \newline
 \newline
@@ -146,12 +146,12 @@ Der Beginn dieser Evaluierung erfolgt mit dem Hotel, das die ID \emph{5ff6dfa94b
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=1\textwidth, center]{dbscan_results_1_1.png}
+    \includegraphics[width=0.5\textwidth, center]{dbscan_results_1_1.png}
     \caption[DBScan Ergebnisse der RevPAR-Korrelationen für das erste Benchmark-Hotel]{DBScan Ergebnisse der RevPAR-Korrelationen für das erste Benchmark-Hotel}
     \label{img:dbscan_results_1_1}
 \end{figure}
 
-Die Abbildungen \ref{img:dbscan_results_1} und \ref{img:dbscan_results_1} verdeutlichen, dass die identifizierten Hotels die Voraussetzungen für einen Korrelationswert von mindestens 0,8 erfüllen. Die Ergebnisse für das Hotel mit der ID \emph{5ff6dfa94b64c82082b03a76} erweisen sich demnach als zufriedenstellend. Allerdings ist eine gewisse Skepsis angebracht, da es auch rein zufällig sein könnte, dass diese Hotels Ähnlichkeiten in Bezug auf den RevPAR Verlauf aufweisen. Aus diesem Grund soll die gleiche Evaluation auch mit dem zweiten Hotel, welches die ID \emph{645cb624b9b0cca6912ed4cc} trägt, durchgeführt werden.
+Die Abbildungen \ref{img:dbscan_results_1} und \ref{img:dbscan_results_1_1} verdeutlichen, dass die identifizierten Hotels die Voraussetzungen für einen Korrelationswert von mindestens 0,8 erfüllen. Die Ergebnisse für das Hotel mit der ID \emph{5ff6dfa94b64c82082b03a76} erweisen sich demnach als zufriedenstellend. Allerdings ist eine gewisse Skepsis angebracht, da es auch rein zufällig sein könnte, dass diese Hotels Ähnlichkeiten in Bezug auf den RevPAR Verlauf aufweisen. Aus diesem Grund soll die gleiche Evaluation auch mit dem zweiten Hotel, welches die ID \emph{645cb624b9b0cca6912ed4cc} trägt, durchgeführt werden.
 
 \begin{figure}[h]
     \centering
@@ -159,10 +159,11 @@ Die Abbildungen \ref{img:dbscan_results_1} und \ref{img:dbscan_results_1} verdeu
     \caption[DBScan Ergebnisse der RevPAR-Verläufe für das zweite Benchmark-Hotel]{DBScan Ergebnisse der RevPAR-Verläufe für das zweite Benchmark-Hotel}
     \label{img:dbscan_results_2}
 \end{figure}
+\newpage
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=1\textwidth, center]{dbscan_results_2_1.png}
+    \includegraphics[width=0.5\textwidth, center]{dbscan_results_2_1.png}
     \caption[DBScan Ergebnisse der RevPAR-Korrelationen für das zweiten Benchmark-Hotel]{DBScan Ergebnisse der RevPAR-Korrelationen für das zweite Benchmark-Hotel}
     \label{img:dbscan_results_2_1}
 \end{figure}
